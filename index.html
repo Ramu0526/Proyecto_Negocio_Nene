@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pool Nene</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="encabezado">
+  <div class="contenedor-logo">
+    <img src="{{ url_for('static', filename='imagenes/logo.jpg') }}" class="logo" alt="Logo">
+  </div>
+  <div class="contenedor-botones" id="botones-auth">
+    <button class="boton-registro" onclick="window.location.href='/registro'">Registrarse</button>
+    <button class="boton-sesion" onclick="window.location.href='/login'">Iniciar Sesión</button>
+    <div class="menu-icono" id="abrir-menu">&#9776;</div>
+  </div>
+</header>
+
+<ul class="menu" id="menu">
+  <li><a href="{{ url_for('index') }}">Inicio</a></li>
+  <li><a href="{{ url_for('panel_usuario') }}">Usuario</a></li>
+  <li><a href="{{ url_for('ver_servicios') }}">Ver servicios</a></li>
+  <li><a href="{{ url_for('ver_eventos') }}">Consultar eventos</a></li>
+  <li><a href="{{ url_for('ver_ofertas') }}">Ofertas del día</a></li>
+  <li><a href="{{ url_for('logout') }}" id="cerrar-sesion" style="display: none;">Cerrar sesión</a></li>
+</ul>
+
+<section class="seccion-video">
+  <video autoplay muted loop playsinline>
+    <source src="{{ url_for('static', filename='videos/video.mp4') }}" type="video/mp4">
+  </video>
+  <div class="texto-video">
+    <h1>Bienvenido a Pool Nene</h1>
+    <p>Donde el juego se encuentra con la experiencia</p>
+    <a href="#nosotros" class="boton-video">Conócenos</a>
+  </div>
+</section>
+
+<section class="seccion-carrusel">
+  <div id="carrusel-principal" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+    <div class="carousel-indicators">
+      {% for imagen in imagenes %}
+        <button type="button" data-bs-target="#carrusel-principal" data-bs-slide-to="{{ loop.index0 }}" class="{% if loop.index0 == 0 %}active{% endif %}"></button>
+      {% endfor %}
+    </div>
+
+    <div class="carousel-inner">
+      {% for imagen in imagenes %}
+        <div class="carousel-item {% if loop.index0 == 0 %}active{% endif %}">
+          <img src="{{ url_for('static', filename='imagenes/carrusel/' + imagen) }}" class="d-block carrusel-img" alt="Slide {{ loop.index }}">
+          <div class="carousel-caption d-none d-md-block texto-carrusel">
+            <h5>Slide {{ loop.index }}</h5>
+            <p>Descripción para la imagen {{ loop.index }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-principal" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carrusel-principal" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+
+  </div>
+</section>
+
+
+<section class="seccion-nosotros" id="nosotros">
+  <div class="contenedor-nosotros">
+    <h2 class="titulo-nosotros">¿Quiénes somos?</h2>
+    <p class="descripcion-nosotros">
+      En <strong>Pool Nene</strong> te invitamos a vivir una experiencia única donde el entretenimiento, la calidad y el buen ambiente se combinan para ofrecerte mucho más que solo mesas de pool. Nuestro espacio ha sido cuidadosamente diseñado para que te relajes, compitas, compartas y disfrutes en un entorno moderno y acogedor. Contamos con mesas profesionales, iluminación especial, música envolvente y un servicio del personal excelente con una selección exclusiva de bebidas y snacks. Además, organizamos torneos y eventos especiales pensados para tí. Ya vengas solo, en pareja o con tus amigos, en Pool Nene siempre hay una mesa esperando para ti.
+    </p>
+  </div>
+</section>
+
+<footer class="pie-pagina">
+  <div class="contenido-pie">
+    <div class="info-contacto">
+      <p>CALLE 18 AV ESQUÍNA BARRIO OSPINA PÉREZ - CÚCUTA</p>
+      <p>Email: contacto@poolnene.com</p>
+      <p>&copy; 2025 Pool Nene. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="whatsapp-float">
+  <a href="https://wa.me/573010000000" target="_blank">
+    <img src="{{ url_for('static', filename='imagenes/descarga.jpeg') }}" alt="WhatsApp">
+  </a>
+</div>
+
+<div class="facebookk-float">
+  <a href="https://www.facebook.com/share/12Lws1yYu4U/" target="_blank">
+    <img src="{{ url_for('static', filename='imagenes/facebookk.png') }}" alt="Facebook">
+  </a>
+</div>
+
+<div class="instagramm-float">
+  <a href="https://www.instagram.com/masterpoolnene?igsh=aGkxdHZzYzFldW12" target="_blank">
+    <img src="{{ url_for('static', filename='imagenes/instagramm.png') }}" alt="Instagram">
+  </a>
+</div>
+
+<script>
+  // Esta variable ahora verifica si cualquier tipo de usuario ha iniciado sesión
+  const usuarioIniciado = {{ (session.get('usuario') is not none or session.get('gerente') is not none or session.get('admin') is not none) | tojson }};
+  const mensaje = {{ mensaje | tojson }};
+</script>
+
+<script src="{{ url_for('static', filename='js/JsMain.js') }}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,416 @@
+/* Estilos Generales para el cuerpo del HTML */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #00ff88; /* Color de texto principal */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Contenedor Principal de las Funciones del Admin */
+.funciones-admin-contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #2c2c2c; /* Fondo del contenedor */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2); /* Sombra suave verde */
+    text-align: center; /* Centrar el contenido */
+}
+
+/* Título de la página de funciones */
+.panel-titulo {
+    color: #00ff88;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+/* Nuevo estilo para el subtítulo "Seleccione una función" */
+.subtitulo-seccion-funciones {
+    color: #e0e0e0; /* Color claro para que se vea sobre el fondo oscuro */
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+/* Sección específica de funcionalidad */
+.seccion-admin-funcionalidad {
+    background-color: #3a3a3a;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.seccion-admin-funcionalidad h2 {
+    color: #00ff88;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* Estilos para los títulos h3 dentro de las secciones de funcionalidad (Ej: Agregar Nueva Mesa, Mesas Actuales) */
+.seccion-admin-funcionalidad h3 {
+    color: #f8f9fa; /* Color blanco brillante para mejor contraste */
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    /* Línea border-bottom eliminada */
+    padding-bottom: 5px; /* Mantener un padding si lo deseas */
+    text-align: left; /* Aseguramos la alineación a la izquierda */
+}
+
+/* Estilos para el formulario integrado */
+.form-evento-integrado {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-evento-integrado label {
+    color: #00ff88;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Campos de entrada de texto, fecha, hora, etc. */
+.campo-entrada {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.campo-entrada::placeholder {
+    color: #999;
+}
+
+.form-evento-integrado textarea.campo-entrada {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Estilo para los campos de tipo file (imágenes, videos) */
+.campo-entrada-file {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #00ff88; /* Borde verde para distinguirlos */
+    border-radius: 5px;
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.campo-entrada-file::file-selector-button {
+    background-color: #00ff88;
+    color: #1e1e1e;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.campo-entrada-file::file-selector-button:hover {
+    background-color: #00cc6f;
+}
+
+
+/* Contenedor de las cajas de funciones con grid */
+.opciones-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas */
+    gap: 25px;
+    margin-top: 30px;
+    justify-content: center; /* Centrar las cajas si no llenan el ancho */
+}
+
+/* Estilo para cada caja de función */
+.caja-funcion {
+    background-color: #004d2c;
+    border: 1px solid #00ff88;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    text-decoration: none;
+    color: #e0e0e0; /* Color de texto claro para las cajas */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centrar el texto dentro de la caja */
+}
+
+.caja-funcion:hover {
+    transform: translateY(-8px);
+    background-color: #00663d;
+    cursor: pointer;
+}
+
+.caja-funcion h3 {
+    color: #00ff88;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.caja-funcion p {
+    color: #ccc; /* Color claro para la descripción */
+    font-size: 1em;
+}
+
+/* Contenedor para botones de Volver y Cerrar Sesión */
+.acciones-inferiores {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Estilo para el botón de Volver */
+.btn-volver {
+    background-color: #00ff88;
+    color: #1e1e1e;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: #00cc6f;
+    color: #1e1e1e;
+}
+
+/* Estilo para el botón de Cerrar Sesión */
+.btn-cerrar-sesion {
+    background-color: #ff4d4d;
+    color: #1e1e1e;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: #cc0000;
+    color: #1e1e1e;
+}
+
+/* Mensajes Flash */
+.flash-mensaje {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash-error, .flash-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.flash-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Estilos para la lista de eventos */
+.lista-eventos {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.lista-eventos li {
+    background-color: #3a3a3a;
+    border: 1px solid #00cc6f;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    color: #e0e0e0;
+    font-size: 0.95em;
+    line-height: 1.5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.lista-eventos li strong {
+    color: #00ff88;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.mensaje-informativo {
+    color: #ccc;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos para la imagen de confirmación de evento */
+.imagen-confirmacion-evento {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    border: 1px solid #00ff88;
+}
+
+.imagen-confirmacion-evento p {
+    color: #00ff88;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los nuevos botones en la sección de agregar/ver eventos */
+.acciones-form-inferior {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.btn-volver-func, .btn-ver-eventos-admin, .btn-agregar-evento-admin {
+    background-color: #008cba; /* Un color distinto para diferenciarlos */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver-func:hover, .btn-ver-eventos-admin:hover, .btn-agregar-evento-admin:hover {
+    background-color: #007bb5;
+}
+
+/* Estilo para el botón de eliminar evento dentro de la lista */
+.btn-eliminar-evento {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
+
+.btn-eliminar-evento:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para el formulario de agregar mesa */
+.form-mesa {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-mesa label {
+    color: #00ff88;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+}
+
+.form-mesa .campo-entrada {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #00cc6f;
+    border-radius: 5px;
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.form-mesa .btn-principal {
+    background-color: #00ff88;
+    color: #1e1e1e;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.form-mesa .btn-principal:hover {
+    background-color: #00cc6f;
+}
+
+/* Estilos para la lista de mesas */
+.lista-mesas {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.lista-mesas li {
+    background-color: #2c2c2c;
+    border: 1px solid #00cc6f;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lista-mesas li strong {
+    color: #00ff88;
+}
+
+.btn-eliminar-mesa {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-eliminar-mesa:hover {
+    background-color: #c82333;
+}
+
+/* Media Queries para ajustar el grid en pantallas pequeñas */
+@media (max-width: 768px) {
+    .opciones-admin-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}

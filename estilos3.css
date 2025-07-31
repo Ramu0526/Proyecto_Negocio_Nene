@@ -1,4 +1,4 @@
-/* Estilos Generales */
+/* Estilos generales para el cuerpo */
 body {
     font-family: Arial, sans-serif;
     background-color: #1e1e1e;
@@ -7,67 +7,102 @@ body {
     padding: 20px;
 }
 
-/* Contenedor Principal del Panel */
+/* Contenedor principal del panel */
 .panel-contenedor {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 30px auto;
     background-color: #2c2c2c;
     padding: 30px;
     border-radius: 10px;
-}
-
-/* Título Principal */
-.panel-titulo {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
     text-align: center;
-    color: #00ff88;
 }
 
-/* Formularios de Administración (Gerente) */
+/* Título del panel */
+.panel-titulo {
+    color: #00ff88;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+/* Clase para los subtítulos de sección en el panel del gerente (Registrar nuevo administrador, Lista de administradores) */
+.subtitulo-seccion {
+    color: #e0e0e0; /* Color claro para que se vea sobre el fondo oscuro */
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+/* Formulario para agregar administrador */
 .form-admin {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 30px;
+    padding: 15px;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    align-items: center;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
 }
 
-/* Campos de Entrada en Formularios */
-.campo-entrada {
+.form-admin input {
+    flex-grow: 1;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #3a3a3a;
-    color: #00ff88;
+    background-color: #4a4a4a;
+    color: #e0e0e0;
 }
 
-.campo-entrada::placeholder {
-    color: #999;
-}
-
-/* Botones Generales */
-.btn-principal {
+.form-admin button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
     background-color: #00ff88;
     color: #1e1e1e;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
-.btn-principal:hover {
+.form-admin button:hover {
     background-color: #00cc6f;
 }
 
-/* Botón de Eliminar (Específico) */
+/* Tabla de administradores */
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-admin th, .tabla-admin td {
+    padding: 12px 15px;
+    text-align: left;
+    color: #e0e0e0; /* Color claro para el texto de la tabla */
+    border-bottom: 1px solid #4a4a4a;
+}
+
+.tabla-admin th {
+    background-color: #004d2c;
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.tabla-admin tbody tr:last-child td {
+    border-bottom: none;
+}
+
 .btn-eliminar {
-    background-color: #ff4d4d; /* Un color rojo para eliminar */
+    background-color: #ff4d4d;
     color: #1e1e1e;
-    padding: 10px;
     border: none;
     border-radius: 5px;
+    padding: 8px 12px;
     cursor: pointer;
-    font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
@@ -75,75 +110,34 @@ body {
     background-color: #cc0000;
 }
 
-
-/* Tabla de Administradores */
-.tabla-admin {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+/* Divisor horizontal */
+.divisor-bonito {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #00ff88, transparent);
+    margin: 30px 0;
 }
 
-.tabla-admin th, .tabla-admin td {
-    border: 1px solid #00ff88;
-    padding: 10px;
-    text-align: center;
-}
-
-.tabla-admin th {
-    background-color: #004d2c;
-    color: white;
-}
-
-/* Mensaje de Bienvenida/Información */
-.mensaje-bienvenida {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* Mensajes Flash (Alertas) */
-.flash-mensaje {
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.flash-exito {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.flash-error, .flash-peligro { /* Combinado para error y peligro */
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.flash-info {
-    background-color: #d1ecf1;
-    color: #0c5460;
-}
-
-/* Estilos para las Cajas de Opciones del Administrador */
+/* Contenedor de opciones de gestión */
 .opciones-admin-contenedor {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 20px;
-    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
+/* Caja de opción de gestión */
 .caja-opcion-admin {
     background-color: #004d2c;
     border: 1px solid #00ff88;
     border-radius: 8px;
     padding: 25px;
     text-align: center;
-    width: 220px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 200px;
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    cursor: pointer;
+    text-decoration: none;
+    color: #e0e0e0; /* Color claro para el texto de la caja */
 }
 
 .caja-opcion-admin:hover {
@@ -161,4 +155,53 @@ body {
 .caja-opcion-admin p {
     color: #ccc;
     font-size: 0.9em;
+}
+
+/* Botón principal (Cerrar sesión) */
+.btn-principal {
+    background-color: #00ff88;
+    color: #1e1e1e;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-principal:hover {
+    background-color: #00cc6f;
+}
+
+/* Mensajes flash */
+.flash-mensaje {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash-error, .flash-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.flash-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Mensaje de bienvenida para cuando no hay administradores */
+.mensaje-bienvenida {
+    color: #e0e0e0; /* Asegura que el texto sea visible */
+    margin-top: 15px;
+    font-style: italic;
 }

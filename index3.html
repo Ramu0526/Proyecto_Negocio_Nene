@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <title>Panel Gerente/Admin</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='estilos3.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="panel-contenedor">
-        {# Título que cambia según el rol #}
         {% if 'gerente' in session %}
-            <h1 class="panel-titulo">Panel de Gerente</h1>
+            <h1 class="panel-titulo">Panel de Gerente y Administradores</h1>
         {% elif 'admin' in session %}
             <h1 class="panel-titulo">Panel para Administradores</h1>
         {% else %}
             <h1 class="panel-titulo">Acceso Restringido</h1>
         {% endif %}
 
-        {# Mostrar mensajes flash #}
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
@@ -27,9 +26,8 @@
             {% endif %}
         {% endwith %}
 
-        {# Contenido solo para el Gerente #}
         {% if 'gerente' in session %}
-            <h2>Registrar nuevo administrador</h2>
+            <h2 class="subtitulo-seccion">Registrar nuevo administrador</h2>
             <form method="POST" action="{{ url_for('agregar_admin') }}" class="form-admin">
                 <input type="text" name="nombre" placeholder="Nombre del administrador" required class="campo-entrada">
                 <input type="email" name="correo" placeholder="Correo del administrador" required class="campo-entrada">
@@ -37,7 +35,7 @@
                 <button type="submit" class="btn-principal">Agregar administrador</button>
             </form>
 
-            <h2>Lista de administradores registrados</h2>
+            <h2 class="subtitulo-seccion">Lista de administradores registrados</h2>
             {% if administradores %}
                 <table class="tabla-admin">
                     <thead>
@@ -65,11 +63,10 @@
                 <p class="mensaje-bienvenida">No hay administradores registrados.</p>
             {% endif %}
 
-            {# ¡Aquí está la nueva línea divisoria! #}
             <hr class="divisor-bonito">
 
             <h2 class="panel-titulo">Opciones de Gestión</h2>
-            <div class="opciones-admin-contenedor"> {# Reutilizamos la misma clase para las cajas de opciones #}
+            <div class="opciones-admin-contenedor">
                 <div class="caja-opcion-admin">
                     <h3>Historial de Pagos</h3>
                     <p>Revisa todos los registros de transacciones y pagos.</p>
@@ -78,33 +75,21 @@
                     <h3>Informe de Reservas</h3>
                     <p>Visualiza el estado y estadísticas de las mesas reservadas.</p>
                 </div>
-                {# Puedes añadir más cajas para el gerente aquí #}
             </div>
 
-        {# Contenido para Administradores (no gerentes) #}
         {% elif 'admin' in session %}
             <h2 class="panel-titulo">Opciones de Administrador</h2>
             <div class="opciones-admin-contenedor">
-                <div class="caja-opcion-admin">
-                    <h3>Agregar Eventos</h3>
-                    <p>Crea y gestiona nuevos eventos.</p>
-                </div>
-                <div class="caja-opcion-admin">
-                    <h3>Agregar Productos</h3>
-                    <p>Gestiona el inventario de productos.</p>
-                </div>
-                <div class="caja-opcion-admin">
-                    <h3>Gestionar Reservas</h3>
-                    <p>Revisa y administra las reservas de clientes.</p>
-                </div>
-                <div class="caja-opcion-admin">
-                    <h3>Gestión de Usuario</h3>
-                    <p>Administra la información de los usuarios.</p>
-                </div>
+                <a href="{{ url_for('admin_funciones') }}" class="caja-opcion-admin">
+                    <h3>Ir a Funciones Admin</h3>
+                    <p>Gestiona eventos, productos, reservas y usuarios.</p>
+                </a>
             </div>
         {% endif %}
 
         <a href="{{ url_for('logout') }}" class="btn-principal" style="display: block; text-align: center; margin-top: 30px;">Cerrar sesión</a>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
